@@ -4,13 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
-    private List<Employee> employees;
+    private List<Employee> employees = new ArrayList<>();
 
     public Database() {
-        employees = new ArrayList<>();
-        employees.add(new Employee("Иван", "Иванов", "оператор"));
-        employees.add(new Employee("Петр", "Петров", "монтажник"));
-        employees.add(new Employee("Кирилл", "Кириллов", "слесарь"));
     }
 
     public List<Employee> getEmployees() {
@@ -23,5 +19,15 @@ public class Database {
 
     public void saveEmployee(Employee employee) {
         employees.add(employee);
+    }
+
+    public Employee findEmployeeById(int employeeId) {
+        Employee foundEmployee = null;
+        for (Employee employeeDB : employees) {
+            if (employeeDB.getId() == employeeId) {
+                foundEmployee = employeeDB;
+            }
+        }
+        return foundEmployee;
     }
 }

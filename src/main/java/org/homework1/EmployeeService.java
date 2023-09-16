@@ -1,5 +1,6 @@
 package org.homework1;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class EmployeeService {
@@ -23,5 +24,25 @@ public class EmployeeService {
         System.out.println("Все сотрудники:");
         employees.stream().forEach(System.out::println);
         System.out.println();
+    }
+
+    /**
+     * Вывод информации об отработанном времени конкретного сотрудника
+     */
+    public void printWorkHistory(int employeeId) {
+        Employee employee = database.findEmployeeById(employeeId);
+        System.out.println("Отработанные дни сотрудника (" + employee + "):");
+        employee.getWorkHistory().stream().forEach(System.out::println);
+        System.out.println();
+    }
+
+    /**
+     * Добавление записи об отработанном дне конкретному сотрунику
+     */
+    public void addWorkDay(int employeeId, int hoursWorked, String absenceReason, Calendar date) {
+        Employee employee = database.findEmployeeById(employeeId);
+        List<WorkDay> workDays = employee.getWorkHistory();
+        workDays.add(new WorkDay(hoursWorked, absenceReason, date));
+        employee.setWorkHistory(workDays);
     }
 }

@@ -1,5 +1,6 @@
 package org.homework1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Employee {
@@ -9,7 +10,7 @@ public class Employee {
     private String firstName;
     private String surname;
     private String role;
-    private List<WorkDay> workHistory;
+    private List<WorkDay> workHistory = new ArrayList<>();
 
     public Employee(String firstName, String surname, String role) {
         this.firstName = firstName;
