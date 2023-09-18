@@ -12,6 +12,8 @@ public class Employee {
     private String role;
     private List<WorkDay> workHistory = new ArrayList<>();
 
+    private List<Document> documents = new ArrayList<>();
+
     public Employee(String firstName, String surname, String role) {
         this.firstName = firstName;
         this.surname = surname;
@@ -53,6 +55,14 @@ public class Employee {
 
     public int getId() {
         return id;
+    }
+
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
     }
 
     @Override

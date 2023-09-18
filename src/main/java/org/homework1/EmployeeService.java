@@ -45,4 +45,30 @@ public class EmployeeService {
         workDays.add(new WorkDay(hoursWorked, absenceReason, date));
         employee.setWorkHistory(workDays);
     }
+
+    /**
+     * Добавление паспорта в список документов сотрудника
+     */
+    public void addPassport(int employeeId, String passportNumber, String address, String whoGave) {
+        Employee employee = database.findEmployeeById(employeeId);
+        List<Document> documents = employee.getDocuments();
+        documents.add(new Passport(passportNumber, employee.getFirstName(), employee.getSurname(), address, whoGave));
+        employee.setDocuments(documents);
+    }
+
+    /**
+     * Добавление трудовой книжки в список документов сотрудника
+     */
+    public void addEmploymentBook(int employeeId, String employmentBookNumber, String employmentHistory) {
+        Employee employee = database.findEmployeeById(employeeId);
+        List<Document> documents = employee.getDocuments();
+        documents.add(new EmploymentBook(employmentBookNumber, employee.getFirstName(), employee.getSurname(), employmentHistory));
+        employee.setDocuments(documents);
+    }
+
+    public void printDocuments(int employeeId) {
+        Employee employee = database.findEmployeeById(employeeId);
+        System.out.println("Документы сотрудника (" + employee + "):");
+        employee.getDocuments().stream().forEach(System.out::println);
+    }
 }

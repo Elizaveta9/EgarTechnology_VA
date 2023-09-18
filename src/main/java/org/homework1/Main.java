@@ -17,5 +17,10 @@ public class Main {
         service.addWorkDay(0, 8, "явка", new GregorianCalendar(2023, Calendar.SEPTEMBER, 4));
         service.addWorkDay(0, 0, "больничный", new GregorianCalendar(2023, Calendar.SEPTEMBER, 5));
         service.printWorkHistory(0);
+        service.printWorkHistory(1);
+        service.addEmploymentBook(1, "1234567", "Работал поваром");
+        service.addPassport(1, "56 17 123456", "ул. Зелёная", "ОУМФЦ России...");
+        service.printDocuments(1);
+        service.printDocuments(0);
     }
 }
