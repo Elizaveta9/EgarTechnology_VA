@@ -1,6 +1,6 @@
 package org.homework1;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.List;
 
 public class EmployeeService {
@@ -39,7 +39,7 @@ public class EmployeeService {
     /**
      * Добавление записи об отработанном дне конкретному сотрунику
      */
-    public void addWorkDay(int employeeId, int hoursWorked, String absenceReason, Calendar date) {
+    public void addWorkDay(int employeeId, int hoursWorked, String absenceReason, LocalDate date) {
         Employee employee = database.findEmployeeById(employeeId);
         List<WorkDay> workDays = employee.getWorkHistory();
         workDays.add(new WorkDay(hoursWorked, absenceReason, date));
