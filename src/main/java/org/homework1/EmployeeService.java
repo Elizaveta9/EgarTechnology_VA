@@ -66,6 +66,9 @@ public class EmployeeService {
         employee.setDocuments(documents);
     }
 
+    /**
+     * Вывод информации о документах конкретного сотрудника
+     */
     public void printDocuments(int employeeId) {
         Employee employee = database.findEmployeeById(employeeId);
         System.out.println("Документы сотрудника (" + employee + "):");
