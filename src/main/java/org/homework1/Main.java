@@ -2,9 +2,6 @@ package org.homework1;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
