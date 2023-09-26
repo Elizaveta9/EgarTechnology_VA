@@ -1,24 +1,23 @@
 package org.homework1;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 public class WorkDay {
     private int hoursWorked;
     private String absenceReason;
-    private Calendar date;
+    private LocalDate date;
 
-    public WorkDay(int hoursWorked, String absenceReason, Calendar date) {
+    public WorkDay(int hoursWorked, String absenceReason, LocalDate date) {
         this.hoursWorked = hoursWorked;
         this.absenceReason = absenceReason;
         this.date = date;
     }
 
-    public Calendar getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Calendar date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -40,7 +39,8 @@ public class WorkDay {
 
     @Override
     public String toString() {
-        SimpleDateFormat formater = new SimpleDateFormat("dd.MM.yyyy (E)");
-        return formater.format(date.getTime()) + " Часов отработано = " + hoursWorked + " (" + absenceReason + ")";
+        return date.toString() + " Часов отработано = " + hoursWorked + " (" + absenceReason + ")";
     }
+
+
 }
